@@ -1,0 +1,81 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio 2</title>
+</head>
+<body >
+    <style>
+        body{
+            margin: 20px 50px;
+            background-image: linear-gradient(to right, #98a1aa, #99a5ca, #adabac, rgb(216, 112, 190));
+        }
+        h1{
+            width: 100vw; text-align: center;
+        }
+        hr {border: 0; height: 0; box-shadow: 0 1px 5px 1px purple;}
+    </style>
+    <h1>Laboratorio 2</h1>
+
+    <h2>Que es JavaScript?</h2>
+    <p> Javascript es un lenguaje de programación que nos permite dotar a nuestros sitios web de interactividad. A diferencia
+        de HTML, que es un lenguaje de etiquetas que se encarga de organizar la información y mostrarla, Javascript  permite que el usuario interactúe con esa información.
+        En resumen, con Javascript  podremos convertir una web en una auténtica aplicación con infinidad de capacidades.</p>
+    <h2>En que se parece JavaScript y Java?</h2>
+    <p>...Name...</p>
+    <p>En definitiva, el único parecido entre estos dos lenguajes son básicamente sus nombres y algunos aspectos relacionados con la sintaxis, ya que esta está inspirada en el lenguaje de programación C. Por todo lo demás son lenguajes diferentes, que se usan con propósitos y para suplir algunas necesidades distintas, ya que como vimos JavaScript esta más enfocado en los temas relacionados con web, como páginas o aplicaciones que se ejecutan desde el navegador;</p>
+    <br><hr><br>
+    <h1>Declarar Variables</h1>
+    <h2>Calculadora</h2>
+    <input type="number" id="num1" > (+, -, *, /)
+    <input type="number" id="num2" > <button onclick="Calcular()">Calcular</button>
+    <h3>Resultados: </h3>
+    <p id="result"></p>
+    <h2>Concadenar</h2>
+
+    <input type="text" id="palabra1"> +
+    <input type="text" id="palabra2"> <button onclick="Concadenar()">Concadenar</button>
+    <h3>Resultado: </h3>
+    <p id="resultado"></p>
+
+    
+
+    <script>
+        const Calcular = () =>{
+            var val1 = parseInt(document.getElementById("num1").value);
+            var val2 = parseInt(document.getElementById("num2").value);
+            var res = {"Suma": val1+val2, "Resta": val1-val2, "Multiplicacion": val1*val2, "Division": val1/val2};
+            var resStr = `Suma: ${val1+val2}<br>Resta: ${val1-val2}<br>Multi: ${val1*val2}<br>Divi: ${val1/val2}`;
+            console.log(`valor 1: ${val1}`);
+            console.log(`valor 2: ${val2}`);
+            console.table(res);
+            document.getElementById("result").innerHTML = resStr;
+        }
+
+        const Concadenar = () =>{
+            let palabra1 = document.getElementById("palabra1").value;
+            let palabra2 = document.getElementById("palabra2").value;
+            let res2 = palabra1 + palabra2;
+            console.log(res2);
+            document.getElementById("resultado").innerHTML = res2;
+        }
+
+        const constante1 = true;
+        const constante2 = 0;
+        console.log(`constante 1: ${constante1} tipo: ${typeof constante1}`);
+        console.log(`constante 2: ${constante2} tipo: ${typeof constante2}`);
+
+        var objecto1 = {
+            entero: 12,
+            cadena: "Hola",
+            booleano: false,
+            obj2: new Object(),
+        }
+        console.log(objecto1);
+
+    </script>
+
+
+</body>
+</html>
