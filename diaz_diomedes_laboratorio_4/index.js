@@ -24,14 +24,23 @@ function InvocarTarjetas(fiboList){
         card.className = "card"
         let texto = document.createTextNode(fibo);
         let text = document.createElement("p");
+
         text.appendChild(texto);
         card.appendChild(text);
         tarjetas.appendChild(card);
-        console.log(fibo);
+
+        card.addEventListener("click", function(event){
+            if(confirm("Ta's Seguro de Borrar esto?!?")){
+                card.remove()
+            }
+        })
+
     },)
 }
 
-function Calcular(){
-    res = CalcularFibo(document.getElementById("numero").value)
-    InvocarTarjetas(res)
-}
+const formulario = document.getElementById("formulario");
+formulario.addEventListener("submit", function(event) {
+    event.preventDefault();
+    valor = CalcularFibo(document.getElementById("numero").value);
+    InvocarTarjetas(valor);
+});
