@@ -1,0 +1,9 @@
+(() => {
+    const Utils = {
+        methods: {
+            crearSudoku: {
+
+            },
+        }
+    }
+})();
