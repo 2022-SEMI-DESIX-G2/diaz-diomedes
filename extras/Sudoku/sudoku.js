@@ -7,14 +7,14 @@
         },
 
         init: () => {
-            Sudoku.handlers.generarSudoku();
+            Sudoku.handlers.onInitGenerarSudoku();
             Sudoku.htmlElements.sudokuForm.addEventListener('submit', Sudoku.handlers.verificarSudoku);
         },
         utils: {
-
+            ...Utils.methods,
         },
         templates: {
-            cuadriculas: (valor, i,j) => {
+            cuadriculas: (valor) => {
                 let casilla = document.createElement("td");
                 casilla.className = "linea"
                 let inputSudoku = document.createElement("input");
@@ -38,38 +38,30 @@
             } 
         },
         handlers: {
-            generarSudoku: () => {
-                var cuadroSudoku = [[0, 0, 0, 0, 0, 0, 0, 0, 0],
-                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],];
-                                    
-                for (let i=0; i<9; i++) {
-                    tabla = Sudoku.htmlElements.sudokuTabla.appendChild(Sudoku.templates.filas());
-                    for (let j=0; j<9; j++) {
-                        cuadroSudoku[i][j] = Math.floor(Math.random() * (9 - 1)) + 1;
-
-                        // listo = false;
-                        // while(!listo){
-                        //     listo = true;
-                        //     console.table(cuadroSudoku);
-                        //     for (let k=j-1; k>=0; k--) {
-                        //         if((cuadroSudoku[i][j] == cuadroSudoku[i][k])){
-                        //             listo = false;
-                        //             cuadroSudoku[i][j] = Math.floor(Math.random() * (9 - 1)) + 1;
-                        //         }
-                        //     }
-                        // }
-                        // console.log(listo);
-                        tabla.appendChild(Sudoku.templates.cuadriculas(cuadroSudoku[i][j], i, j))
-
-                    }
+            onInitGenerarSudoku: () => {
+                for(let i=0; i<9; i++){
+                    cuadroSudoku = Sudoku.utils.generarSudoku();
+                    // console.log({cuadroSudoku});
+                    Sudoku.handlers.mostrarSudoku(cuadroSudoku);
                 }
+                    // tabla = Sudoku.htmlElements.sudokuTabla.appendChild(Sudoku.templates.filas());
+                    // for (let j=0; j<9; j++) {
+                    //     cuadroSudoku[i][j] = Math.floor(Math.random() * (9 - 1)) + 1;
+
+                    //     // listo = false;
+                    //     // while(!listo){
+                    //     //     listo = true;
+                    //     //     console.table(cuadroSudoku);
+                    //     //     for (let k=j-1; k>=0; k--) {
+                    //     //         if((cuadroSudoku[i][j] == cuadroSudoku[i][k])){
+                    //     //             listo = false;
+                    //     //             cuadroSudoku[i][j] = Math.floor(Math.random() * (9 - 1)) + 1;
+                    //     //         }
+                    //     //     }
+                    //     // }
+                    //     // console.log(listo);
+                    //     tabla.appendChild(Sudoku.templates.cuadriculas(cuadroSudoku[i][j], i, j))
+                  // }
                 // listo = false;
                 // while (!listo){
                 //     listo = true;
@@ -94,20 +86,25 @@
                 //     }
                 // }
 
-                sudokUser = cuadroSudoku;
-                for(let i=0; i<12; i++){
-                    x = parseInt(Math.floor(Math.random() * 8));
-                    y = parseInt(Math.floor(Math.random() * 8));
-                    if(sudokUser[x][y] !== " "){
-                        sudokUser[x][y] = " ";
-                    }
+                // sudokUser = cuadroSudoku;
+                // for(let i=0; i<12; i++){
+                //     x = parseInt(Math.floor(Math.random() * 8));
+                //     y = parseInt(Math.floor(Math.random() * 8));
+                //     if(sudokUser[x][y] !== " "){
+                //         sudokUser[x][y] = " ";
+                //     }
                     
-                }
+                // }
                 
-                // Sudoku.handlers.mostrarSudoku(sudokUser)
+                // Sudoku.handlers.mostrarSudoku(cuadroSudoku)
                 
             },
             mostrarSudoku: (listaSudoku) => {
+                console.log(listaSudoku);
+                tabla = Sudoku.htmlElements.sudokuTabla.appendChild(Sudoku.templates.filas());
+                listaSudoku.forEach(element => {
+                    tabla.appendChild(Sudoku.templates.cuadriculas(element));
+                });
                 for(let i = 0; i < 9; i++) {
                     tabla = Sudoku.htmlElements.sudokuTabla.appendChild(Sudoku.templates.filas());
                     for (let j=0; j < 9; j++){
@@ -146,7 +143,7 @@
     }
     Sudoku.init()
 
-})(document.Utils)
+})(document.Utils);
 
 // sudoku1 =  ["987654321",,3,6,5,4,8,7,9];
 
