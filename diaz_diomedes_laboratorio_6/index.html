@@ -12,50 +12,31 @@
     <section>
         <form id="formulario">
             <h1>POKECARDS</h1>
-            <select name="tipoBusqueda" id="tipoBusqueda">
+            <!-- <select name="tipoBusqueda" id="tipoBusqueda">
                 <option value="pokemon">Pokemón</option>
                 <option value="ability">Habilidad</option>
-            </select>
+            </select> -->
             <input type="text" name="valorBusqueda" id="valorBusqueda">
             <input type="submit" value="Buscar">
         </form>
     </section>
 
     <section id="pokeCards">
-        <h1>Glass effect</h1>
-            <div class="canvas">
+            <!-- <div class="canvas">
             <div class="circle"></div>
             <div id="card" class="card">
-                <div class="pokemon text">Ditto</div>
-                <img class="logo" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/132.png" />
-                <!-- <img class="chip" src="https://github.com/OlgaKoplik/CodePen/blob/master/chip.png?raw=true" /> -->
-                <div class="numeroId">12</div>
+                <div class="pokemon text" id="pokemon-name">Ditto</div>
+                <img class="pokemon-imagen" id="pokemon-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/132.png"/>
+                <div class="pokemon-id" id="pokemon-id">132</div>
                 <div class="name text">Tipos</div>
-                <!-- <div class="date text">12/21</div> -->
-            </div>
-            <div class="circle"></div>
-            </div>
-
-            <a target="_blank" title="instagram/web__addict" href="https://www.instagram.com/web__addict/"><i class="fab fa-instagram"></i></a>
+                </div>
+                <div class="circle"></div>
+            </div> -->
     </section>
-    <script>
-        const card = document.getElementById("card");
-        const circles = document.querySelectorAll(".circle");
-
-        document.getElementsByTagName("body")[0].addEventListener("mousemove", (e) => {
-        const x = -(e.pageX + e.currentTarget.offsetLeft);
-        const y = -(e.pageY + e.currentTarget.offsetTop);
-
-        card.style.transform = `translate3d(${x / 20}px, ${y / 20}px, 0)`;
-
-        Array.from(circles).forEach((circle) => {
-            circle.style.transform = `translate3d(${x / 50}px, ${-y / 50}px, 0)`;
-        });
-        });
-
-    </script>
+    
     <script src="utils.js"></script>
     <script src="index.js"></script>
+
     
 </body>
 </html>
