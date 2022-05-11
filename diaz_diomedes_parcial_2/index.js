@@ -5,6 +5,7 @@
             tipoBusqueda: document.querySelector("#tipo-busqueda"),
             entradaBuscador: document.querySelector("#entrada-buscar"),
             botonLimpiar: document.querySelector("#boton-limpiar"),
+            botonBuscar: document.querySelector("#boton-buscar"),
             tarjetasSalida: document.querySelector("#tarjetas"),
         },
         init: () => {
@@ -26,16 +27,25 @@
                         searchType,
                         response,
                     });
-                    App.htmlElements.tarjetasSalida.innerHTML = renderedTemplate;
+                    App.htmlElements.tarjetasSalida.innerHTML = await renderedTemplate;
                     App.htmlElements.botonLimpiar.style.display = "";
+
+                    App.htmlElements.botonBuscar.disabled = true;
+
                 } catch (error) {
-                    App.htmlElements.tarjetasSalida.innerHTML = `<h1>${error}</h1>`;
+                    App.htmlElements.tarjetasSalida.innerHTML = App.templates.errorCard(error);
+                    App.htmlElements.botonLimpiar.style.display = "";
+
+                    App.htmlElements.botonBuscar.disabled = true;
                 }
             },
             limpiarTarjetasClick: (e) => {
                 e.preventDefault();
                 App.htmlElements.tarjetasSalida.innerHTML = "";
-                botonLimpiar.style.display = "none";
+                App.htmlElements.botonLimpiar.style = "display: none";
+
+                App.htmlElements.botonBuscar.disabled = false;
+
             },
             buscarEvoluciones: async (link) => {
                 try {
@@ -56,31 +66,30 @@
                 };
                 return renderMap[searchType]
                     ? renderMap[searchType](response)
-                    : App.templates.errorCard();
+                    : App.templates.errorCard(response);
             },
 
-            errorCard: () => `<h1>There was an error</h1>`,
-            
-            pokemonCard: ({ id, name, weight, height, sprites, abilities, species }) => {
+            errorCard: (error) =>  `<div class="tarjeta">
+                                        <h2 id="nombre">Error</h2>
+                                        <div id="who-learn">
+                                            <span>Hubo un error</span><br>
+                                            <span>${error}</span>
+                                        </div>
+                                    </div>`,
+                                        
+            pokemonCard: async ({ id, name, weight, height, sprites, abilities, species }) => {
                 const habilidadesLista = abilities.map(
                     ({ ability }) =>
                         `<li>${ability.name}</li>`
                     );
-                evolucion = App.handlers.buscarEvoluciones(species.url);
-                console.log(evolucion);
-                // const evoLista = [];
-                // const evoLista = App.handlers.buscarEvoluciones(species.url).resolver
-                //     .then(() => {
-                         
-                //     // resolver(response);
-                //     console.log(evoLista);;                
-                // });
+
+
+                evolucion = await App.handlers.buscarEvoluciones(species.url);
 
                 const evoLista = evolucion.map(
                     ({ name,is_baby }) =>
                     `<li>${name}${is_baby ? "<object data='imgs/baby.svg'></object>" : ""}</li>`
                 );  
-                console.log(evoLista);
                 
                 return `<div class="tarjeta">
                             <h2 id="nombre">${name} (${id})</h2>
