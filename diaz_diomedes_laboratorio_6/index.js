@@ -33,7 +33,7 @@
                         encontrado = true;
                     } catch (error) {
                         if(searchType === "ability"){
-                            encont~rado = true;
+                            encontrado = true;
                             App.htmlElements.pokeCards.innerHTML = `<h1>${error}</h1>`;
                         }
                         searchType = "ability";
@@ -61,6 +61,8 @@
         templates: {
             render: ({ searchType, response }) => {
                 console.log(response);
+
+                
                 const renderMap = {
                     ability: App.templates.abilityCard,
                     pokemon: App.templates.pokemonCard,

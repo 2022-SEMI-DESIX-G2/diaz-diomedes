@@ -1,0 +1,316 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap");
+body {
+  background-color: #031926;
+}
+
+#PokeApi-logo {
+  position: absolute;
+  width: 257px;
+  height: 103px;
+  left: calc(50% - 128px);
+  top: 31px;
+  z-index: 1;
+}
+
+.formulario-buscador {
+  background-color: #F7F9F7;
+  position: relative;
+  width: 536px;
+  height: 210px;
+  margin: 100px auto 0 auto;
+  border-radius: 5px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  -ms-grid-rows: (1fr)[5];
+      grid-template-rows: repeat(5, 1fr);
+}
+
+.formulario-buscador h1 {
+  margin: 35px 0 0 47px;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1 / 3;
+  -ms-grid-row: 1;
+  grid-row: 1;
+  top: 35px;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  color: #000000;
+}
+
+.formulario-buscador p {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1 / 3;
+  -ms-grid-row: 2;
+  grid-row: 2;
+  margin: 11px 0 0 47px;
+  position: relative;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 15px;
+  color: #000000;
+}
+
+.formulario-buscador #label-entrada {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1 / 2;
+  margin: 8px 0 0 47px;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+  color: #000000;
+}
+
+.formulario-buscador #label-tipo {
+  -ms-grid-column: 2;
+  grid-column: 2 / 2;
+  margin: 8px 0 0 9px;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+  color: #000000;
+}
+
+.formulario-buscador input {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1 / 2;
+  -ms-grid-row: 4;
+  grid-row: 4;
+  margin: 4px 0 0 47px;
+  width: 198px;
+  height: 27px;
+  background: #E8E8E8;
+  border-radius: 5px;
+  padding: 0 10px;
+  border: none;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #000000;
+}
+
+.formulario-buscador select {
+  -ms-grid-column: 2;
+  grid-column: 2 / 2;
+  -ms-grid-row: 4;
+  grid-row: 4;
+  margin: 4px 44px 0 9px;
+  width: 218px;
+  height: 27px;
+  background: #E8E8E8;
+  border-radius: 5px;
+  border: none;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #000000;
+}
+
+.formulario-buscador button {
+  width: 108px;
+  height: 27px;
+  background: #19A5F8;
+  border-radius: 5px;
+  border-color: #19A5F8;
+  border: none;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+  color: #FFFFFF;
+}
+
+.formulario-buscador #boton-limpiar {
+  -ms-grid-column: 1;
+  grid-column: 1;
+  -ms-grid-row: 5;
+  grid-row: 5;
+  margin: 25px 0 14px 47px;
+}
+
+.formulario-buscador #boton-buscar {
+  -ms-grid-column: 2;
+  grid-column: 2;
+  -ms-grid-row: 5;
+  grid-row: 5;
+  margin: 25px 44px 14px auto;
+}
+
+#tarjetas .tarjeta {
+  position: relative;
+  width: 536px;
+  min-height: 228px;
+  margin: 25px auto 0 auto;
+  background: #F7F9F7;
+  border-radius: 5px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  -ms-grid-rows: (min-content)[3];
+      grid-template-rows: repeat(3, -webkit-min-content);
+      grid-template-rows: repeat(3, min-content);
+}
+
+#tarjetas .tarjeta #nombre {
+  position: relative;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1 / 2;
+  -ms-grid-row: 1;
+  grid-row: 1;
+  margin: 31px 0 0 44px;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 22px;
+  color: #000000;
+}
+
+#tarjetas .tarjeta span {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+  color: #000000;
+}
+
+#tarjetas .tarjeta #sprites {
+  position: relative;
+  -ms-grid-column: 1;
+  grid-column: 1;
+  -ms-grid-row: 2;
+  grid-row: 2;
+  padding: 0;
+  margin: 15px 0 0 44px;
+}
+
+#tarjetas .tarjeta #sprites #img-front {
+  position: relative;
+  width: 40px;
+  height: 45px;
+  margin: -4px 0 0 -8px;
+}
+
+#tarjetas .tarjeta #sprites #img-back {
+  position: relative;
+  width: 45px;
+  height: 45px;
+  margin: -4px 0 0 -17px;
+}
+
+#tarjetas .tarjeta #weight-height {
+  position: relative;
+  -ms-grid-column: 2;
+  grid-column: 2;
+  -ms-grid-row: 2;
+  grid-row: 2;
+  padding: 0;
+  margin: 15px 0 0 72px;
+}
+
+#tarjetas .tarjeta #weight-height p {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 15px;
+  margin: 3px 0;
+}
+
+#tarjetas .tarjeta ul {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 15px;
+  color: #000000;
+  margin: 3px 0 5px 6px;
+  padding: 0;
+  list-style: none;
+}
+
+#tarjetas .tarjeta ul li::before {
+  content: "· ";
+  margin-right: 4px;
+  font-weight: bold;
+}
+
+#tarjetas .tarjeta #evolution-chain {
+  position: relative;
+  -ms-grid-column: 1;
+  grid-column: 1;
+  -ms-grid-row: 3;
+  grid-row: 3;
+  margin: 4px 0 0 44px;
+}
+
+#tarjetas .tarjeta #evolution-chain object {
+  position: absolute;
+  width: 15px;
+  height: 13.27px;
+  margin: 1px 0 0 5px;
+}
+
+#tarjetas .tarjeta #abilities {
+  position: relative;
+  -ms-grid-column: 2;
+  grid-column: 2;
+  -ms-grid-row: 3;
+  grid-row: 3;
+  margin: 4px 0 0 72px;
+}
+
+#tarjetas .tarjeta #abilities ul {
+  margin-left: 0px;
+}
+
+#tarjetas .tarjeta #abilities object {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  margin: 1px 0 0 5px;
+}
+
+#tarjetas .tarjeta #who-learn {
+  position: relative;
+  -ms-grid-column: 1;
+  grid-column: 1;
+  -ms-grid-row: 3;
+  grid-row: 3;
+  margin: 15px 0 0 44px;
+}
+
+#tarjetas .tarjeta #who-learn ul {
+  margin-left: 0px;
+}
+
+#tarjetas .tarjeta #who-learn object {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  margin: 1px 0 0 5px;
+}
+/*# sourceMappingURL=style.css.map */
