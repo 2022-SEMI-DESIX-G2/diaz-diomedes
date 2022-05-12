@@ -16,7 +16,8 @@
             buscarPokemonSubmit: async (e) => {
                 e.preventDefault();
 
-                const query = App.htmlElements.entradaBuscador.value;
+                var query = App.htmlElements.entradaBuscador.value;
+                query = query.toLowerCase();
                 const searchType = App.htmlElements.tipoBusqueda.value;
                 try {
                     const response = await Utils.getPokemon({
@@ -71,10 +72,12 @@
 
             errorCard: (error) =>  `<div class="tarjeta">
                                         <h2 id="nombre">Error</h2>
-                                        <div id="who-learn">
+                                        <div id="error-message">
                                             <span>Hubo un error</span><br>
                                             <span>${error}</span>
+                                            <br>
                                         </div>
+                                        <img id="img-pokeball" src="https://webstockreview.net/images/pokeball-clipart-open-drawing-2.png">
                                     </div>`,
                                         
             pokemonCard: async ({ id, name, weight, height, sprites, abilities, species }) => {
@@ -82,24 +85,26 @@
                     ({ ability }) =>
                         `<li>${ability.name}</li>`
                     );
-
-
+                
+                pokemonesGrandes = [10197, 130, 6];
                 evolucion = await App.handlers.buscarEvoluciones(species.url);
 
                 const evoLista = evolucion.map(
                     ({ name,is_baby }) =>
-                    `<li>${name}${is_baby ? "<object data='imgs/baby.svg'></object>" : ""}</li>`
+                    `<li>${name.replace(/^\w/, (c) => c.toUpperCase()) }${is_baby ? "<object data='imgs/baby.svg'></object>" : ""}</li>`
                 );  
-                
+                // console.info(typeof(id));
+                console.log(evoLista.length)
                 return `<div class="tarjeta">
-                            <h2 id="nombre">${name} (${id})</h2>
+                            <h2 id="nombre">${name.replace(/^\w/, (c) => c.toUpperCase())} (${id})</h2>
                             <div id="sprites">
                                 <span>Sprites</span><br>
-                                <img id="img-front" src="${sprites.front_default}">
-                                <img id="img-back" src="${sprites.back_default}">
+                                <img id="${pokemonesGrandes.includes(id) ? 'img-front-grande' : 'img-front'}" src="${sprites.front_default}">
+                                <img id="${pokemonesGrandes.includes(id) ? 'img-back-grande' : 'img-back'}" src="${sprites.back_default}">
                             </div>
-                            <div id="evolution-chain">
-                                <span>Evolution chain</span><br>
+                            
+                            <div id="evolution-chain" >
+                                <span>Evolution ${evoLista.length > 1 ? 'chain' : ''}</span><br>
                                 <ul>
                                     ${evoLista.join("")}
                                 </ul>
@@ -120,7 +125,7 @@
                         `<li>${pokemon.name}${is_hidden ? "<object data='imgs/hide.svg'></object>" : ""}</li>`
                     );
                 return `<div class="tarjeta">
-                            <h2 id="nombre">${name}</h2>
+                            <h2 id="nombre">${name.replace(/^\w/, (c) => c.toUpperCase())}</h2>
                         <div id="who-learn">
                             <span>Who can learn it?</span><br>
                             <ul>
