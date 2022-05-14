@@ -1,0 +1,140 @@
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 40px;
+  font-family: "Montserrat", sans-serif;
+  color: #05103b;
+  background: #05103b;
+}
+
+body h1 {
+  color: #fff;
+}
+
+body .canvas {
+  position: relative;
+  margin-top: 80px;
+}
+
+body .canvas .circle {
+  position: absolute;
+  border-radius: 50%;
+}
+
+body .canvas .circle:first-child {
+  width: 200px;
+  height: 200px;
+  right: -10%;
+  top: -10%;
+  background: linear-gradient(125deg, #ff3838 42%, #05103b 100%);
+}
+
+body .canvas .circle:last-child {
+  width: 130px;
+  height: 130px;
+  left: -5%;
+  bottom: -20%;
+  background: linear-gradient(37deg, #ff3838 42%, #05103b 100%);
+}
+
+body .canvas .card {
+  min-width: 207px;
+  min-height: 330px;
+  display: -ms-grid;
+  display: grid;
+  position: relative;
+  z-index: 1;
+  padding: 10px 20px;
+  overflow: hidden;
+  -webkit-box-shadow: 0 0 20px 0 rgba(5, 16, 59, 0.3);
+          box-shadow: 0 0 20px 0 rgba(5, 16, 59, 0.3);
+  background: linear-gradient(40deg, transparent 10%, rgba(255, 255, 255, 0.16) 60%, transparent 100%);
+  -webkit-backdrop-filter: blur(7px);
+          backdrop-filter: blur(7px);
+  border-radius: 10px;
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+}
+
+body .canvas .card .pokemon-imagen {
+  width: 200px;
+  height: 200px;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  margin-top: 20%;
+}
+
+body .canvas .card .pokemon-list {
+  -ms-grid-column-align: left;
+      justify-self: left;
+  margin-top: 25%;
+  margin-left: 10%;
+}
+
+body .canvas .card .pokemon-list li {
+  color: #fff;
+}
+
+body .canvas .card .pokemon-list li a {
+  text-decoration: none;
+  font-size: 16px;
+  color: #fff;
+}
+
+body .canvas .card .pokemon-id {
+  position: absolute;
+  -ms-grid-column-align: end;
+      justify-self: end;
+  margin-top: 10px;
+  margin-right: 15px;
+  color: #9b9b9b;
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#686868));
+  background: linear-gradient(#fff, #686868);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+body .canvas .card .text {
+  font-weight: 500;
+  color: white;
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#686868));
+  background: linear-gradient(#fff, #686868);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+body .canvas .card .text.pokemon {
+  position: absolute;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1/3;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  color: #9b9b9b;
+  font-size: 24px;
+  letter-spacing: 1px;
+  top: 20px;
+  font-size: 32px;
+}
+
+body .canvas .card .text.name {
+  text-transform: uppercase;
+  font-size: 18px;
+}
+
+body .canvas .card .text.date {
+  -ms-grid-column-align: end;
+      justify-self: end;
+  font-size: 20px;
+}
+/*# sourceMappingURL=style.css.map */

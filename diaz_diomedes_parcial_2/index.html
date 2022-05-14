@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parcial 2 - PokeApi</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body> 
+    <img src="imgs/PokeApiLogo.png" id="PokeApi-logo" alt="PokeApi - Logo">
+
+    <section >
+        <form class="formulario-buscador" id="formulario-buscador">
+            <h1>Buscador de pokemones</h1>
+            <p>Busca desde pokemones hasta habilidades de los mismos.</p>
+            <label for="entrada" id="label-entrada">Buscar</label>
+            <input type="text" id="entrada-buscar">
+            <label for="tipo" id="label-tipo">Tipo de búsqueda</label>
+            <select id="tipo-busqueda">
+                <option value="pokemon">Por pokemon</option>
+                <option value="ability">Por habilidad</option>
+            </select>
+            <button type="submit" id="boton-buscar">Buscar</button>
+            <button id="boton-limpiar" style="display: none;">Limpiar</button>
+        </form>
+    </section>
+
+    <section id="tarjetas">
+        <!-- <div class="tarjeta">
+            <h2 id="nombre">
+                Battle armor
+            </h2>
+            <div id="who-learn">
+                <span>Who can learn it?</span><br>
+                <ul>
+                    <li>Cubone <object data="imgs/hide.svg"></object></li>
+                    <li>Marowak <object data="imgs/hide.svg"></object></li>
+                    <li>Kabuto</li>
+                    <li>Kabutops</li>
+                    <li>Anorith</li>
+                    <li>Armaldo</li>
+                </ul>
+            </div>
+        </div>
+        <div class="tarjeta">
+            <h2 id="nombre">
+                Pikachu (25)
+            </h2>
+            <div id="sprites">
+                <span>Sprites</span><br>
+                <img id="img-front" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="">
+                <img id="img-back" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/25.png" alt="">
+            </div>
+            <div id="evolution-chain">
+                <span>Evolution chain</span><br>
+                <ul>
+                    <li>Pichu <object data="imgs/baby.svg"></object></li>
+                    <li>Pikachu</li>
+                    <li>Raichu</li>
+                </ul>
+            </div>
+            <div id="weight-height">
+                <span>Weight / Height</span><br>
+                <p>40 / 3</p>
+            </div>
+            <div id="abilities">
+                <span>Abilities</span><br>
+                <ul>
+                    <li>Limber </li>
+                    <li>Imposter <object data="imgs/hide.svg"></object></li>
+                </ul>
+            </div>
+        </div> -->
+    </section>
+
+    <script src="utils.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>

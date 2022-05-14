@@ -12,8 +12,6 @@
                     fiboAnt = fiboTempo;
                 }
             }
-
-
         }
     };
     document.Utils = Utils;

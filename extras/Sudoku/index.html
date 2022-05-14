@@ -1,99 +1,20 @@
- <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
  <head>
      <meta charset="UTF-8">
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Document</title>
+     <title>SUDOKU - DROMEL</title>
      <link rel="stylesheet" href="css/style.css">
  </head>
  <body>
     <h1>SUDOKU DROMEL</h1>
     <form class="sudokuForm" id="sudokuForm">
         <table class="sudokuTabla" id="sudokuTabla">
-            <!-- <tr class="fila1">
-            </tr>
-            <tr class="fila2">
-            </tr>
-            <tr class="fila">
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-            </tr>
-            <tr class="fila">
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-            </tr>
-            <tr class="fila">
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-            </tr>
-            <tr class="fila">
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-            </tr>
-            <tr class="fila">
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td> 
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-            </tr>
-            <tr class="fila">
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-            </tr>
-            <tr class="fila">
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-                <td class="linea"><input type="number" min="0" max="9" class="sudoku"></td>
-            </tr> -->
         </table>
         <input type="submit" hidden="hidden">
     </form>
+    <script src="utils.js"></script>
     <script src="sudoku.js"></script>
  </body>
  </html>

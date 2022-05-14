@@ -1,0 +1,160 @@
+$light: #fff;
+$base: #05103b;
+$primarily: #9b9b9b;
+$gray: darken($primarily, 20);
+$accent: #ff3838;
+
+//////////////////////////////////
+
+body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	padding-top: 40px;
+
+	font-family: "Montserrat", sans-serif;
+
+	color: $base;
+	background: $base;
+
+	h1 {
+		color: $light;
+	}
+
+	.canvas {
+		position: relative;
+
+		margin-top: 80px;
+
+		.circle {
+			position: absolute;
+
+			border-radius: 50%;
+
+			&:first-child {
+
+				width: 200px;
+				height: 200px;
+
+				right: -10%;
+				top: -10%;
+
+				background: linear-gradient(125deg, $accent 42%, $base 100%);
+			}
+
+			&:last-child {
+				width: 130px;
+				height: 130px;
+
+				left: -5%;
+				bottom: -20%;
+
+				background: linear-gradient(37deg, $accent 42%, $base 100%);
+			}
+		}
+
+		.card {
+			// width: 207px;
+			// height: 330px;
+			min-width: 207px;
+			min-height: 330px;
+
+			display: grid;
+			//   grid: 1fr 1fr 1fr / 1fr 1fr;
+			//   align-items: center;
+
+			position: relative;
+			z-index: 1;
+
+			padding: 10px 20px;
+
+			overflow: hidden;
+			box-shadow: 0 0 20px 0 rgba($base, 0.3);
+			background: linear-gradient(40deg,
+					transparent 10%,
+					rgba($light, 0.16) 60%,
+					transparent 100%);
+			backdrop-filter: blur(7px);
+			border-radius: 10px;
+
+			border: 1.5px solid rgba($light, 0.08);
+
+			.pokemon-imagen {
+				width: 200px;
+				height: 200px;
+				justify-self: center;
+				// margin-left: 100%;
+				margin-top: 20%;
+			}
+
+			.pokemon-list {
+				justify-self: left;
+				margin-top: 25%;
+				margin-left: 10%;
+
+				li {
+					color: $light;
+					a {
+						text-decoration: none;
+						font-size: 16px;
+						color: $light;
+					}
+				}
+
+				// grid-template-columns: 1fr 1fr;
+				// grid-gap: 10px;
+
+			}
+
+			.pokemon-id {
+				position: absolute;
+				justify-self: end;
+				margin-top: 10px;
+				margin-right: 15px;
+				color: $primarily;
+				background: linear-gradient($light, $gray);
+				background-clip: text;
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				// color: gold;
+			}
+
+			.text {
+				font-weight: 500;
+
+				color: rgba($light, 1);
+
+				background: linear-gradient($light, $gray);
+				background-clip: text;
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+
+
+				&.pokemon {
+					position: absolute;
+					grid-column: 1/3;
+					align-self: center;
+					color: $primarily;
+					font-size: 24px;
+					letter-spacing: 1px;
+					top: 20px;
+					// margin-top: 15px;
+					font-size: 32px;
+				}
+
+				&.name {
+					text-transform: uppercase;
+
+					font-size: 18px;
+				}
+
+				&.date {
+					justify-self: end;
+
+					font-size: 20px;
+				}
+			}
+		}
+	}
+}
