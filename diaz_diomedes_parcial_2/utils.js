@@ -31,11 +31,9 @@
         },
         formatearEvoluciones: (evo, resultado = []) => {
             resultado.push({name: evo.species.name, is_baby: evo.is_baby});
-            if (evo.evolves_to.length > 0) {
                 for(a of evo.evolves_to ){
                     Utils.formatearEvoluciones(a, resultado);
                 } 
-            }
             return resultado;
 
         }
