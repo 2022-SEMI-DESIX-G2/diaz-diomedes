@@ -9,11 +9,12 @@
             tarjetasSalida: document.querySelector("#tarjetas"),
         },
         init: () => {
-            App.htmlElements.formularioBuscador.addEventListener("submit",App.handlers.buscarPokemonSubmit);
+            App.htmlElements.formularioBuscador.addEventListener("submit", App.handlers.buscarPokemonSubmit);
             App.htmlElements.botonLimpiar.addEventListener("click",App.handlers.limpiarTarjetasClick);
         },
         handlers: {
             buscarPokemonSubmit: async (e) => {
+                App.htmlElements.botonBuscar.innerHTML = "<img src='imgs/Pokebals.gif' alt='loading' />";
                 e.preventDefault();
 
                 var query = App.htmlElements.entradaBuscador.value;
@@ -32,6 +33,8 @@
                     App.htmlElements.botonLimpiar.style.display = "";
 
                     App.htmlElements.botonBuscar.disabled = true;
+                    App.htmlElements.botonBuscar.innerHTML = "Buscar";
+
 
                 } catch (error) {
                     App.htmlElements.tarjetasSalida.innerHTML = App.templates.errorCard(error);
@@ -44,7 +47,7 @@
                 e.preventDefault();
                 App.htmlElements.tarjetasSalida.innerHTML = "";
                 App.htmlElements.botonLimpiar.style = "display: none";
-
+                App.htmlElements.botonBuscar.innerHTML = "Buscar";
                 App.htmlElements.botonBuscar.disabled = false;
 
             },
@@ -93,7 +96,6 @@
                     ({ name,is_baby }) =>
                     `<li>${name.replace(/^\w/, (c) => c.toUpperCase()) }${is_baby ? "<object data='imgs/baby.svg'></object>" : ""}</li>`
                 );  
-                // console.info(typeof(id));
                 console.log(evoLista.length)
                 return `<div class="tarjeta">
                             <h2 id="nombre">${name.replace(/^\w/, (c) => c.toUpperCase())} (${id})</h2>
