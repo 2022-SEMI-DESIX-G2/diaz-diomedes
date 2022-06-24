@@ -1,7 +1,7 @@
 require("dotenv").config();
 var colors = require("colors");
 
-const maxCacheTime = 1000 * 30;
+const maxCacheTime = 1000 * 60;
 
 const express = require("express");
 const cors = require("cors");
@@ -24,23 +24,26 @@ app.post("/pokemon/:name", async function (req, res) {
 
   const pokeDataFormat = (data, evolution, ubicaciones) => {
     const pokedata = {
+      id: data.id,
       name: capital(data.name),
       weight: data.weight,
       height: data.height,
       abilities: data.abilities.map((ability) => capital(ability.ability.name)),
     };
     req.query.sprites && (pokedata.sprites = data.sprites);
-    req.query.ubicacion && (pokedata.ubicaciones = ubicaciones);
+    req.query.ubication && (pokedata.ubicaciones = ubicaciones);
     req.query.evolution && (pokedata.evolution = evolution);
 
     return pokedata;
   };
 
-  if (
-    CACHE[name] &&
-    Date.parse(JSON.parse(CACHE[name]).cacheTime) > Date.now() - maxCacheTime
-  ) {
-    dataResponse = pokeDataFormat(JSON.parse(CACHE[name]).data);
+  if (CACHE[name] && JSON.parse(CACHE[name]).cacheTime > new Date()) {
+    evolution = formatEvolutionChain(JSON.parse(CACHE[name]).evolution.chain);
+    dataResponse = pokeDataFormat(
+      JSON.parse(CACHE[name]).data,
+      evolution,
+      JSON.parse(CACHE[name]).ubicaciones
+    );
     return res.json({
       name,
       cacheTime: JSON.parse(CACHE[name]).cacheTime,
@@ -48,27 +51,30 @@ app.post("/pokemon/:name", async function (req, res) {
       isCached: true,
     });
   }
-  // if (ERROR[name]) {
-  //   return res.json({ name, data: JSON.parse(ERROR[name]), isCached: true });
-  // }
+  if (ERROR[name]) {
+    return res.json({ name, data: JSON.parse(ERROR[name]), isCached: true });
+  }
 
   const url = `https://pokeapi.co/api/v2/pokemon/${name}`;
   let responseData;
   try {
     const { data } = await axios.get(url);
     const species = await axios.get(data.species.url);
-    var evolution = await axios(species.data.evolution_chain.url);
-    console.log(evolution.data);
-
-    console.log(formatEvolutionChain(evolution.data));
-    evolution = formatEvolutionChain(evolution.data?.chain);
+    let evolution = await axios(species.data.evolution_chain.url);
     const ubicaciones = await axios.get(data.location_area_encounters);
-    responseData = pokeDataFormat(data, evolution, ubicaciones.data);
 
-    CACHE[name] = JSON.stringify({ cacheTime: new Date(), data });
-    console.log(CACHE[name]);
+    data.sprites = formatSprites(data.sprites).filter((s) => s);
+    CACHE[name] = JSON.stringify({
+      cacheTime: Date.now() + maxCacheTime,
+      data,
+      evolution: evolution.data,
+      ubicaciones: ubicaciones.data,
+    });
+
+    evolution = formatEvolutionChain(evolution.data.chain);
+    responseData = pokeDataFormat(data, evolution, ubicaciones.data);
   } catch {
-    // responseData = data;
+    responseData = data;
     ERROR[name] = JSON.stringify({ name, error: "Invalid pokemon." });
   }
   res.json({
@@ -84,11 +90,22 @@ app.listen(PORT, () => {
 });
 
 function formatEvolutionChain(evo, resultado = []) {
-  resultado.push({ name: evo.species.name, is_baby: evo.is_baby });
+  resultado.push({ name: capital(evo.species.name), is_baby: evo.is_baby });
   for (let e of evo.evolves_to) {
-    Utils.formatearEvoluciones(e, resultado);
+    formatEvolutionChain(e, resultado);
   }
   return resultado;
+}
+
+function formatSprites(images) {
+  sprites = Object.keys(images).map(function (key) {
+    if (images[key] !== null) {
+      if (typeof images[key] === "string") {
+        return images[key];
+      }
+    }
+  });
+  return sprites;
 }
 
 function capital(string) {
