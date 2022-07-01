@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/burbujas.css">
+
+  <title>Document</title>
+</head>
+<body>
+  <section>
+    <main class="main">
+      <img id="PokeLogo" src="imgs/PokeApiLogo.png">
+      
+      <form id="pokemon-form" class="pokemon-form trayBox" >
+        <input class="pokemon-input" id="pokemon-input" type="text">
+
+        <div class="checkboxes">
+          <input type="checkbox" name="sprites" id="sprites-checkbox">
+          <label for="sprites" >Sprites</label>
+
+          <input type="checkbox" name="ubication" id="ubication-checkbox">
+          <label for="ubication">Ubicaciones</label>
+          
+          <input type="checkbox" name="evolution" id="evolution-checkbox">
+          <label for="evolution">Evoluciones</label>
+        </div>
+        <button class="pokemon-button" type="submit">Buscar</button>
+       
+      </form>
+    </main>
+
+    <section class="pokemon-response">
+    </section>
+  <div class="burbujas">
+    <div class="burbuja"></div>
+    <div class="burbuja"></div>
+    <div class="burbuja"></div>
+    <div class="burbuja"></div>
+    <div class="burbuja"></div>
+    <div class="burbuja"></div>
+    <div class="burbuja"></div>
+    <div class="burbuja"></div>
+    <div class="burbuja"></div>
+    <div class="burbuja"></div>
+  </div> 
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>
